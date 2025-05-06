@@ -45,10 +45,16 @@
     <main>
       <fieldset>
         <legend>Créer son profil</legend>
-        <form>
+        <form id="formRegister">
           <div>
             <label><strong>Nom :</strong></label>
-            <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Jane" />
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              id="name"
+              name="name"
+              placeholder="Jane"
+            />
             <span id="controlName"></span>
           </div>
           <div>
@@ -66,14 +72,27 @@
             <label><strong>Mot de passe :</strong></label>
             <input
               type="password"
-              class="form-control form-control-lg "
+              class="form-control form-control-lg"
               id="mdp"
               name="mdp"
               placeholder="Mot de passe"
             />
-            <div id="conditionMDP" hidden>Votre mot de passe doit contenir ...</div>
+            <span id="controlMdp" hidden>
+              <label>Le mot de passe doit vérifier les critères suivants :</label>
+              <ul>
+                <li>Au moins 8 caractères</li>
+                <li>Au moins 1 majuscule</li>
+                <li>Au moins 1 minuscule</li>
+                <li>Au moins 1 chiffre</li>
+                <li>Au moins un caractère spécial</li>
+              </ul></span
+            >
           </div>
-          <div><button type="submit" class="btn" id="valider" name="valider">Valider</button></div>
+          <div>
+            <button type="submit" class="btn" id="valid" name="valid">
+              Valider
+            </button>
+          </div>
         </form>
       </fieldset>
     </main>
