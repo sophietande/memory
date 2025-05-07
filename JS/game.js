@@ -6,15 +6,20 @@ for (let i = 0; i < 6; i++) {
   imagesSource.push("../ressource/memory-legume/" + (i + 1) + ".svg");
   imagesSource.push("../ressource/memory-legume/" + (i + 1) + ".svg");
 }
-//mélandgge du tableau
+
+//mélange du tableau
 shuffle(imagesSource);
 
 //ajout des images dans le container
 for (let i = 0; i < imagesSource.length; i++) {
   const img = document.createElement("img");
+  img.src = "../ressource/question.svg";
+  //img.setAttribute("class", "class-img");
+  img.addEventListener("click", () => {
+    img.src = imagesSource[i];
+    clickImg(img);
+  });
 
-  img.src = imagesSource[i];
-  img.setAttribute("class", "class-img");
   container.appendChild(img);
 }
 
@@ -27,31 +32,30 @@ function shuffle(tab) {
     tab[randomIndex] = temp;
   }
 }
-//fonction délcnahcée au click sur image du memory
+//fonction déclenchée au click sur image du memory
 let tabPair = [];
 let flag = 0;
-const test = (node) => {
+
+const clickImg = (node) => {
   //console.log(node.src);
-  
-  console.log("toto: "+flag);
-  if(flag<2) {
+
+  console.log("toto: " + flag);
+  if (flag < 2) {
     tabPair.push(node.src);
     console.log(tabPair);
-    
+    console.log(node);
   }
   flag++;
-
 };
 
 //créaton d'un tableau contenant les img générées dans la div container
-let imagesTab = Array.from(container.getElementsByTagName("img"));
-console.log(imagesTab);
+//let imagesTab = Array.from(container.getElementsByTagName("img"));
 
-imagesTab.forEach((image) => {
-  image.addEventListener("click", () => {
-    test(image);
-  });
-});
+// imagesTab.forEach((image) => {
+//   image.addEventListener("click", () => {
+//     clickImg(image);
+//   });
+// });
 
 //console.log(imagesSource);
 
