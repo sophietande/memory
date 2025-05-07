@@ -78,12 +78,8 @@ const submit = (event) => {
 
             inputName.value = "";
             inputMail.value = "";
-            inputPassword.value = ""; 
-            
-            window.location.replace("/HTML/login.html");
+            inputPassword.value = "";
       }
-
-     
 };
 
 let inputName = document.getElementById("name");
