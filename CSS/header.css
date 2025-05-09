@@ -1,0 +1,22 @@
+h1 {
+	text-align: center;
+	font-size: 5em;
+	color: grey;
+
+}
+
+h1 > strong {
+	color: rgb(12, 70, 12);
+}
+
+nav {
+	display: flex;
+	margin: 2em;
+	align-items: center;
+}
+
+.container-li {
+	width: auto;
+	margin: 2em;
+
+}

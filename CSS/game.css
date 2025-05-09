@@ -1,0 +1,14 @@
+#image-container {
+
+	width: 800px;
+	margin: 2em;
+	
+}
+
+.class-img {
+	width : 200px;
+	border: 0.1em solid rgb(212, 212, 212) ;
+	border-radius: 10%;
+	margin : 1em;
+	padding: 1em;
+}

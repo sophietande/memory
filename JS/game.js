@@ -13,11 +13,17 @@ shuffle(imagesSource);
 //ajout des images dans le container
 for (let i = 0; i < imagesSource.length; i++) {
   const img = document.createElement("img");
-  img.src = "../ressource/question.svg";
-  //img.setAttribute("class", "class-img");
+  img.src = imagesSource[i];
+
+  setTimeout(function () {
+    img.src = "../ressource/question.svg";
+  }, 2000);
+
+  img.setAttribute("class", "class-img");
   img.addEventListener("click", () => {
     img.src = imagesSource[i];
-    clickImg(img);
+    
+    clickImg(img, );
   });
 
   container.appendChild(img);
@@ -37,15 +43,32 @@ let tabPair = [];
 let flag = 0;
 
 const clickImg = (node) => {
-  //console.log(node.src);
+  console.log("flag: " + flag);
 
-  console.log("toto: " + flag);
+  if (flag == 0)
+	tabPair = [];
+
   if (flag < 2) {
-    tabPair.push(node.src);
-    console.log(tabPair);
-    console.log(node);
+    tabPair.push(node);
   }
+
   flag++;
+
+  if (flag === 2) {
+    //si j'ai une paire
+    if (tabPair[0].src === tabPair[1].src) {
+      console.log("success");
+    } else {
+      console.log("raté");
+
+      for (let i = 0; i < tabPair.length; i++) {
+        setTimeout(function () {
+		tabPair[i].src = "../ressource/question.svg";
+        }, 1000);
+      }
+    }
+    flag = 0;
+  }
 };
 
 //créaton d'un tableau contenant les img générées dans la div container
